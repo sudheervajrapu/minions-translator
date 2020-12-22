@@ -4,8 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Minions Translator</title>
+    <style>
+      textarea {
+        display: block;
+        padding: 1rem;
+        margin: 1rem;
+      }
+
+      #output-text {
+        border: 1px solid black;
+        display: block;
+        width: 78%;
+        height: 20vh;
+        padding: 1rem;
+        margin: 1rem;
+      }
+    </style>
   </head>
   <body>
-    Javascript in browser.
+    <textarea
+      placeholder="put your text here which you want to translate it to minions language"
+      id="input-text"
+      cols="60"
+      rows="5"
+    ></textarea>
+
+    <button id="translate">Click Me!</button>
+
+    <p>Your translation will appear here 👇</p>
+    <div id="output-text"></div>
+    <script src="index.js"></script>
   </body>
 </html>
