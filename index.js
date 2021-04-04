@@ -1,10 +1,10 @@
 const getTextArea = document.querySelector("#input-text"),
   getButton = document.querySelector("#translate"),
   outputDiv = document.querySelector("#output-text");
-getButton.addEventListener("click", clickMe);
+getButton.addEventListener("click", translateToMinionLang);
 
 function constructURL(text) {
-  const URL = "https://lessonfourapi.tanaypratap.repl.co/translate/yoda.json";
+  const URL = "https://api.funtranslations.com/translate/minion.json";
   return `${URL}?text=${text}`;
 }
 
@@ -12,8 +12,7 @@ function errorHandler(error) {
   console.log("An error has occured", error);
 }
 
-function clickMe() {
-  const URL = "https://lessonfourapi.tanaypratap.repl.co/translate/yoda.json";
+function translateToMinionLang() {
   fetch(constructURL(getTextArea.value))
     .then((response) => response.json())
     .then((data) => (outputDiv.innerText = data.contents.translated))
