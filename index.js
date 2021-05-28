@@ -1,7 +1,7 @@
-const getTextArea = document.querySelector("#input-text"),
-  getButton = document.querySelector("#translate"),
-  outputDiv = document.querySelector("#output-text");
-getButton.addEventListener("click", translateToMinionLang);
+const inputText = document.querySelector("#input-text"),
+  translateBtn = document.querySelector("#translate"),
+  outputText = document.querySelector("#output-text");
+translateBtn.addEventListener("click", translateToMinionLang);
 
 function constructURL(text) {
   const URL = "https://api.funtranslations.com/translate/minion.json";
@@ -9,12 +9,12 @@ function constructURL(text) {
 }
 
 function errorHandler(error) {
-  console.log("An error has occured", error);
+  console.log("Something went wrong! Please try again..", error);
 }
 
 function translateToMinionLang() {
-  fetch(constructURL(getTextArea.value))
+  fetch(constructURL(inputText.value))
     .then((response) => response.json())
-    .then((data) => (outputDiv.innerText = data.contents.translated))
+    .then((data) => (outputText.innerText = data.contents.translated))
     .catch(errorHandler);
 }
